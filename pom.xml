@@ -118,7 +118,7 @@
             <configuration>
               <archive>
                 <manifest>
-		    <mainClass>{$userDefinedMainClass}</mainClass>
+		    <mainClass>${userDefinedMainClass}</mainClass>
                 </manifest>
               </archive>
               <descriptorRefs>
@@ -142,7 +142,7 @@
 	  </execution>
 	</executions>
 	<configuration>
-	  <mainClass>{$userDefinedMainClass}</mainClass>
+	  <mainClass>${userDefinedMainClass}</mainClass>
 	</configuration>
       </plugin>
 

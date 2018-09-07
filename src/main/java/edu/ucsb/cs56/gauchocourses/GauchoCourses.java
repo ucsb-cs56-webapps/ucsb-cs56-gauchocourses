@@ -35,9 +35,9 @@ public class GauchoCourses {
         // hello.mustache file is in resources/templates directory
         get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
 
-		get("/form/student", (rq, rs) -> new ModelAndView(map, "studentForm.mustache"), new MustacheTemplateEngine());
+		get("/makeSchedule", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
 
-		post("/add/student", (rq, rs) -> new ModelAndView(map, "addedStudent.mustache"), new MustacheTemplateEngine());
+		get("/listCourse", (rq, rs) -> new ModelAndView(map, "listCourse.mustache"), new MustacheTemplateEngine());
 		
 	}
 	
