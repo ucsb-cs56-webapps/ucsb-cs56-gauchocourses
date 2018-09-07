@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.pconrad;
+package edu.ucsb.cs56.gauchocourses;
 
 import static spark.Spark.port;
 
@@ -19,9 +19,9 @@ import static spark.Spark.post;
  *
  */
 
-public class SparkMustacheDemo02 {
+public class GauchoCourses {
 
-	public static final String CLASSNAME="SparkMustacheDemo02";
+	public static final String CLASSNAME="GauchoCourses";
 	
 	public static final Logger log = Logger.getLogger(CLASSNAME);
 
