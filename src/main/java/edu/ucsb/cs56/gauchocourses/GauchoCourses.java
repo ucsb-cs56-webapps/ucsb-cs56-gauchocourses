@@ -33,7 +33,7 @@ public class GauchoCourses {
         map.put("name", "Fuheng");
 		
         // hello.mustache file is in resources/templates directory
-        get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
+        get("/", (rq, rs) -> new ModelAndView(map, "mainpage.mustache"), new MustacheTemplateEngine());
 
 		get("/makeSchedule", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
 
