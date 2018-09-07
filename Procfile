@@ -1,2 +1,2 @@
-web: java $JAVA_OPTS -jar target/spark-mustache-demo-02-1.0-jar-with-dependencies.jar
+web: java $JAVA_OPTS -jar target/ucsb-cs56-gauchocourses-1.0-jar-with-dependencies.jar
 

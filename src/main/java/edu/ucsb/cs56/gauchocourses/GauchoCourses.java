@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.pconrad;
+package edu.ucsb.cs56.gauchocourses;
 
 import static spark.Spark.port;
 
@@ -19,9 +19,9 @@ import static spark.Spark.post;
  *
  */
 
-public class SparkMustacheDemo02 {
+public class GauchoCourses {
 
-	public static final String CLASSNAME="SparkMustacheDemo02";
+	public static final String CLASSNAME="GauchoCourses";
 	
 	public static final Logger log = Logger.getLogger(CLASSNAME);
 
@@ -35,9 +35,9 @@ public class SparkMustacheDemo02 {
         // hello.mustache file is in resources/templates directory
         get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
 
-		get("/form/student", (rq, rs) -> new ModelAndView(map, "studentForm.mustache"), new MustacheTemplateEngine());
+		get("/makeSchedule", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
 
-		post("/add/student", (rq, rs) -> new ModelAndView(map, "addedStudent.mustache"), new MustacheTemplateEngine());
+		get("/listCourse", (rq, rs) -> new ModelAndView(map, "listCourse.mustache"), new MustacheTemplateEngine());
 		
 	}
 	
