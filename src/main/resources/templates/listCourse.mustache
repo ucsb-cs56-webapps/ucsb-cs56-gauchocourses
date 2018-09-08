@@ -3,9 +3,11 @@
 <head>
 
 {{> head }}
-
+ 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <style>
 * {
   box-sizing: border-box;
@@ -48,32 +50,53 @@
 <body>
  {{> nav }}
 
- <h1>WIP</h1>
+ 
  
  
  <!-- Dropdowns to find courses -->
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quarter <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Summer18</a></li>
-    <li><a href="#">Fall18</a></li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Department <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Computer Science</a></li>
-    <li><a href="#">Math</a></li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Course1</a></li>
-    <li><a href="#">Course2</a></li>
-  </ul>
-</li>
  
+
+<div class="container">
+  <div class = "dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Quarter
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Fall</a></li>
+      <li><a href="#">Winter</a></li>
+      <li><a href="#">Spring</a></li>
+      <li><a href="#">Summer</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class = "container">                                 
+  <div class="dropdown">
+  <div style = "position:relative; left: 120px; top: -34px;">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
+    <span class="caret"></span></button>
+     <ul class="dropdown-menu">
+      <li><a href="#">2019</a></li>
+      <li><a href="#">2018</a></li>
+      <li><a href="#">2017</a></li>
+      <li><a href="#">2016</a></li>
+    </ul>
+  </div>
+</div>
+ 
+<div class = "container">                                    
+  <div class="dropdown">
+     <div style = "position:relative; left: 210px; top: -68px;">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Department
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Computer Science</a></li>
+      <li><a href="#">Physics</a></li>
+      <li><a href="#">Electrical and Computer Engineering</a></li>
+    </ul>
+  </div>
+</div>
+   
+
  <h2>Search Courses</h2>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
