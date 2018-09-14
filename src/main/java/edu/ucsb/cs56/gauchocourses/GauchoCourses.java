@@ -28,7 +28,17 @@ public class GauchoCourses {
 	public static void main(String[] args) {
 
         port(getHerokuAssignedPort());
-		
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("visit in browser: http://localhost:" + getHerokuAssignedPort());
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	
 		Map map = new HashMap();
         map.put("name", "Fuheng");
 		
