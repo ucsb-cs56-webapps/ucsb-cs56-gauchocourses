@@ -1,37 +1,132 @@
 <!DOCTYPE html>
 <html>
+<head>
 {{> head }}
+
+<style>
+* {
+  box-model: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+#wrapper {
+  width: 450px;
+}
+.container {
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+}
+h2 {
+  margin: 5px 0;
+  color: #666;
+}
+table {
+  width: 200px;
+  border-collapse: collapse;
+}
+td {
+  color: #333;
+  padding: 10px;
+  border: 1px solid #bbb;
+  position: relative;
+}
+td button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 12px;
+}
+td button:hover {
+  outline: none;
+  border-color: #888;
+  cursor: pointer;
+}
+</style>
+
+
+</head>
+
 <body>
  {{> nav }}
  <h1>Make A Schedule</h1>
 
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Summer18</a></li>
-      <li><a href="#">Fall18</a></li>
-    </ul>
-  </li>
-
-<!-- Search form -->
+<!-- Search for courses -->
 <p> Search for a class: </p>
 <div class="md-form">
     <input class="form-control" type="text" placeholder="Search" aria-label="Search">
 </div>
-<form action="/add/student" method="post">
-  First name:<br>
-  <input type="text" name="firstname" value="Chris">
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname" value="Gaucho">
-  <br><br>
-  Last name:<br>
-  <input type="text" name="perm" value="1234567">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/add/student".</p>
+<!-- Dropdowns to find courses -->
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quarter <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Summer18</a></li>
+    <li><a href="#">Fall18</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Department <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Computer Science</a></li>
+    <li><a href="#">Math</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Course1</a></li>
+    <li><a href="#">Course2</a></li>
+  </ul>
+</li>
+
+<div id="wrapper"></div>
+
+<button onclick="window.location.href='/generatedSchedules'">Generate Schedules</button>
+
+ <script>
+ window.onload = function () {
+  var data = {
+    allCourses: ['CS24', 'CS56', 'Physics 1', 'ECE 10A', 'PSTAT 120A', 'PSTAT 120B'],
+    myCourses: []
+  };
+  var tables = {};
+  var moveMe = function () {
+    this.table = tables[this.table === tables.allCourses ? 'myCourses' : 'allCourses'];
+    this.table.tbody.appendChild(this.tr);
+  };
+  Object.keys(data).forEach(function (key) {
+    var container = document.createElement('div'),
+        table = tables[key] = document.createElement('table'),
+        tbody = table.tbody = document.createElement('tbody');
+    data[key].forEach(function (item) {
+      var tr = document.createElement('tr'),
+          td = document.createElement('td');
+      td.innerHTML = item;
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      var button = document.createElement('button');
+      button.innerHTML = 'move';
+      button.onclick = moveMe;
+      button.table = table;
+      button.tr = tr;
+      td.appendChild(button);
+    });
+    table.appendChild(tbody);
+    var header = document.createElement('h2');
+    header.innerHTML = key;
+    container.appendChild(header);
+    container.appendChild(table);
+    container.className = 'container';
+    document.getElementById('wrapper').appendChild(container);
+  });
+};
+ </script>
+
 
 
  {{> bootstrap-from-cdn-body }}

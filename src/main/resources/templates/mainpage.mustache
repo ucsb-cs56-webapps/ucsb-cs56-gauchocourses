@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+
+<style>
+div.a {
+    font-size: 100px;
+}
+</style>
+</head>
+<body>
+ {{> nav }}
+
+
+<div style="width:1000px; margin:0 auto;">
+    <div class="a">Hello Gaucho</div>
+    <p>Navigate using the tabs above.</p>
+    <button onclick="window.location.href='/login'">Sign In</button>
+</div>
+
+
+
+ {{> bootstrap-from-cdn-body }}
+</body>
+</html>

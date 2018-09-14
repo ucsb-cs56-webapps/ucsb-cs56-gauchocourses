@@ -28,17 +28,33 @@ public class GauchoCourses {
 	public static void main(String[] args) {
 
         port(getHerokuAssignedPort());
-		
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("visit in browser: http://localhost:" + getHerokuAssignedPort());
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	System.out.println("");
+	
 		Map map = new HashMap();
         map.put("name", "Fuheng");
 		
         // hello.mustache file is in resources/templates directory
-        get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
+        get("/", (rq, rs) -> new ModelAndView(map, "mainpage.mustache"), new MustacheTemplateEngine());
 
 		get("/makeSchedule", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
 
+		post("/makeScheduleResult", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
+
 		get("/listCourse", (rq, rs) -> new ModelAndView(map, "listCourse.mustache"), new MustacheTemplateEngine());
-		
+
+		get("/generatedSchedules", (rq, rs) -> new ModelAndView(map, "generatedSchedules.mustache"), new MustacheTemplateEngine());
+
+		get("/login", (rq, rs) -> new ModelAndView(map, "login.mustache"), new MustacheTemplateEngine());
+
 	}
 	
     static int getHerokuAssignedPort() {
