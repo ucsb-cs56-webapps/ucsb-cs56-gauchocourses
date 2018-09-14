@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+</head>
+<body>
+ {{> nav }}
+ <h1>Login below:</h1>
+
+<form action="/makeScheduleResult" method="post">
+  Username:<br>
+  <input type="text" name="username" value="username">
+  <br>
+  Password:<br>
+  <input type="password" name="password" value="">
+  <br>
+  <br><br>
+  <input type="submit" value="Login">
+</form> 
+
+ {{> bootstrap-from-cdn-body }}
+</body>
+</html>

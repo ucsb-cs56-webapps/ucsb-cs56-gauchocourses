@@ -37,9 +37,13 @@ public class GauchoCourses {
 
 		get("/makeSchedule", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
 
+		post("/makeScheduleResult", (rq, rs) -> new ModelAndView(map, "makeSchedule.mustache"), new MustacheTemplateEngine());
+
 		get("/listCourse", (rq, rs) -> new ModelAndView(map, "listCourse.mustache"), new MustacheTemplateEngine());
 
 		get("/generatedSchedules", (rq, rs) -> new ModelAndView(map, "generatedSchedules.mustache"), new MustacheTemplateEngine());
+
+		get("/login", (rq, rs) -> new ModelAndView(map, "login.mustache"), new MustacheTemplateEngine());
 
 	}
 	
